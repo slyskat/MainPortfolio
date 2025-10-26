@@ -1,0 +1,125 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: calc(0.5rem - 2px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  font-family: inherit;
+}
+
+.button:focus {
+  outline: 2px solid hsl(167 100% 70%);
+  outline-offset: 2px;
+}
+
+.button svg {
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.primary {
+  background-color: hsl(219 58% 88%);
+  color: hsl(210 65% 11%);
+}
+
+.primary:hover {
+  background-color: hsl(hsl(219 58% 88%) / 0.9);
+}
+
+.destructive {
+  background-color: hsl(0 84.2% 60.2%);
+  color: hsl(219 58% 88%);
+}
+
+.destructive:hover {
+  background-color: hsl(0 84.2% 60.2% / 0.9);
+}
+
+.outline {
+  border: 1px solid hsl(210 40% 25%);
+  background-color: hsl(210 65% 11%);
+}
+
+.outline:hover {
+  background-color: hsl(167 100% 70%);
+  color: hsl(210 65% 11%);
+}
+
+.secomdary {
+  background-color: hsl(210 50% 18%);
+  color: hsl(219 58% 88%);
+}
+
+.secondary:hover {
+  background-color: hsl(210 50% 18% / 0.8);
+}
+
+.ghost {
+  background-color: transparent;
+}
+
+.ghost:hover {
+  background-color: hsl(167 100% 70%);
+  color: hsl(210 65% 11%);
+}
+
+.link {
+  color: hsl(219 58% 88%);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  background-color: transparent;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+
+.accent {
+  background-color: hsl(167 100% 70%);
+  color: hsl(210 65% 11%);
+}
+
+.accent:hover {
+  background-color: hsl(167 100% 70%/ 0.9);
+}
+
+.outlineAccent {
+  border: 1px solid hsl(167 100% 70% / 0.3);
+  background-color: transparent;
+  color: hsl(167 100% 70%);
+}
+
+.outlineAccent:hover {
+  border-color: hsl(167 100% 70%);
+  background-color: hsl(167 100% 70% / 0.1);
+}
+
+.small {
+  height: 2.25rem;
+  border-radius: calc(0.5rem - 2px);
+  padding: 0 0.75rem;
+}
+
+.medium {
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.large {
+  height: 2.75rem;
+  border-radius: calc(0.5rem - 2px);
+  padding: 0 2rem;
+}
+
+.icon {
+  height: 2.5rem;
+  width: 2.5rem;
+}

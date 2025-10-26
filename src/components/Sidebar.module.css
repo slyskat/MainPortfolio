@@ -1,0 +1,10 @@
+.sidebar {
+  background-color: #0a1c2e;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
