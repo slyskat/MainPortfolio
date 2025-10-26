@@ -1,0 +1,47 @@
+.container {
+  min-height: 100vh;
+  background-color: hsl(210 65% 11%);
+}
+
+.scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background-color: hsl(167 100% 70%);
+  z-index: 100;
+  transform-origin: left;
+}
+
+.main {
+  width: 100%;
+  padding-top: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 4rem;
+  max-width: 1400px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    margin-left: 7rem;
+    padding-left: calc(6rem * 2);
+    padding-right: calc(6rem * 2);
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main {
+    padding-left: calc(9rem * 2);
+    padding-right: calc(9rem * 2);
+  }
+}

@@ -19,10 +19,10 @@ function Sidebar({ activeSection }) {
             const isActive = activeSection === item.id;
 
             return (
-              <li key={item.id}>
+              <li key={item.id} className={styles.navItem}>
                 <a
-                  href={`${item.id}`}
-                  className={`${isActive} ? 'active' : 'none'`}
+                  href={`#${item.id}`}
+                  className={isActive ? styles.active : styles.navLink}
                 >
                   {item.label}
                 </a>
