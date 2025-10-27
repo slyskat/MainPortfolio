@@ -4,6 +4,7 @@ import Hero from "./pages/Hero";
 import { useState, useEffect } from "react";
 
 import styles from "./App.module.css";
+import AboutSection from "./components/sections/AboutSection";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("hero");
@@ -67,6 +68,7 @@ function App() {
       <Sidebar />
       <main className={styles.main}>
         <Hero scrollToSection={scrollToSection} />
+        <AboutSection />
       </main>
     </div>
   );

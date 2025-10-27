@@ -1,3 +1,8 @@
+:root {
+  --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
 *,
 *::before,
 a::after {
@@ -14,7 +19,7 @@ html {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter);
   font-weight: 400;
   line-height: 1.7;
   color: hsl(219 58% 88%);

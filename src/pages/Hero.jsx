@@ -1,6 +1,6 @@
 import Button from "../ui/Button";
 import styles from "./Hero.module.css";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ChevronDown } from "lucide-react";
 
 function Hero({ scrollToSection }) {
   return (
@@ -32,24 +32,32 @@ function Hero({ scrollToSection }) {
         </div>
 
         <div className={styles.ctaButtons}>
-          <Button onClick={() => scrollToSection("projects")}>
+          <Button
+            size="large"
+            btnType="accent"
+            onClick={() => scrollToSection("projects")}
+          >
             View My Work
-            <ArrowDown />
+            <ChevronDown />
           </Button>
 
-          <Button onClick={() => scrollToSection("contact")}>
+          <Button
+            size="large"
+            btnType="outlineAccent"
+            onClick={() => scrollToSection("contact")}
+          >
             Get In Touch
             <ArrowRight />
           </Button>
         </div>
       </div>
 
-      <div className={styles.scrollIndicator}>
+      {/* <div className={styles.scrollIndicator}>
         <span className={styles.scrollText}>SCROLL</span>
         <div>
           <ArrowDown />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
