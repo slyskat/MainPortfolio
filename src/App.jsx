@@ -7,7 +7,7 @@ import styles from "./App.module.css";
 import AboutSection from "./components/sections/AboutSection";
 
 function App() {
-  const [currentSection, setCurrentSection] = useState("hero");
+  const [currentSection, setCurrentSection] = useState("about");
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(function () {
@@ -22,29 +22,28 @@ function App() {
     return () => window.removeEventListener("scroll", handleScrollProgress);
   }, []);
 
-  // useEffect(function () {
-  //   const sectionIds = ["about", "experience", "skills", "projects", "contact"];
-  //   const sections = sectionIds.map((id) => document.getElementById(id));
+  useEffect(function () {
+    const sections = document.querySelectorAll("section");
 
-  //   const options = {
-  //     root: null,
-  //     rootMargin: "0px 0px -60% 0px",
-  //     threshold: 0.4,
-  //   };
+    const options = {
+      root: null,
+      rootMargin: "0px 0px -60% 0px",
+      threshold: 0.4,
+    };
 
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         setCurrentSection(entry.target.id);
-  //       }
-  //     });
-  //   }, options);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCurrentSection(entry.target.id);
+        }
+      });
+    }, options);
 
-  //   sections.forEach((section) => observer.observe(section));
-  //   return () => {
-  //     sections.forEach((section) => observer.unobserve(section));
-  //   };
-  // }, []);
+    sections.forEach((section) => observer.observe(section));
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
@@ -65,7 +64,10 @@ function App() {
         style={{ transform: `scaleX(${scrollProgress / 100})` }}
       ></div>
       <Header />
-      <Sidebar />
+      <Sidebar
+        currentSection={currentSection}
+        scrollToSection={scrollToSection}
+      />
       <main className={styles.main}>
         <Hero scrollToSection={scrollToSection} />
         <AboutSection />

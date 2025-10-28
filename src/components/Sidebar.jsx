@@ -9,29 +9,37 @@ const navItems = [
   { id: "contact", label: "CONTACT", icon: Mail },
 ];
 
-function Sidebar({ activeSection }) {
+function Sidebar({ currentSection, scrollToSection }) {
   return (
-    <>
-      <aside className={styles.sidebar}>
-        <ul className={styles.nav}>
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === item.id;
+    <aside className={styles.sidebar}>
+      <ul className={styles.nav}>
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = currentSection === item.id;
 
-            return (
-              <li key={item.id} className={styles.navItem}>
-                <a
-                  href={`#${item.id}`}
-                  className={isActive ? styles.active : styles.navLink}
-                >
-                  {item.label}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </aside>
-    </>
+          const handleClick = (e) => {
+            if (typeof scrollToSection === "function") {
+              e.preventDefault();
+              scrollToSection(item.id);
+            }
+          };
+
+          return (
+            <li key={item.id} className={styles.navItem}>
+              <a
+                href={`#${item.id}`}
+                className={`${styles.navLink} ${isActive ? styles.active : ""}`}
+                onClick={handleClick}
+                title={item.label}
+              >
+                <Icon className={styles.icon} size={18} />
+                <span className={styles.label}>{item.label}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </aside>
   );
 }
 
