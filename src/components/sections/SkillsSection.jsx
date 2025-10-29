@@ -1,3 +1,4 @@
+import Tech from "../Tech";
 import styles from "./SkillsSection.module.css";
 
 function SkillsSection() {
@@ -60,20 +61,22 @@ function SkillsSection() {
     },
   ];
   return (
-    <section>
+    <section id="skills" className={styles.section}>
       <div>
-        <h2>Skills & Expertise</h2>
-        <div>
+        <h2 className={styles.heading}>Skills & Expertise</h2>
+        <div className={styles.categories}>
           {skillCategories.map((category) => (
-            <div>
-              <h3>{category.title}</h3>
-              <div>
+            <div className={styles.category}>
+              <h3 className={styles.categoryTitle}>{category.title}</h3>
+              <div className={styles.skillGrid}>
                 {category.skills.map((skill) => (
-                  <div>
-                    <div>
-                      <div>{skill.name}</div>
-                      <div>
-                        <p>{skill.description}</p>
+                  <div className={styles.skillCard} key={skill.name}>
+                    <div className={styles.skillContent}>
+                      <Tech techName={skill.name} />
+                      <div className={styles.skillDetails}>
+                        <p className={styles.skillDescription}>
+                          {skill.description}
+                        </p>
                       </div>
                     </div>
                   </div>
