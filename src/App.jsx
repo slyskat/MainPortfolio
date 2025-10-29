@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 import styles from "./App.module.css";
 import AboutSection from "./components/sections/AboutSection";
+import SkillsSection from "./components/sections/SkillsSection";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("about");
@@ -71,6 +72,7 @@ function App() {
       <main className={styles.main}>
         <Hero scrollToSection={scrollToSection} />
         <AboutSection />
+        <SkillsSection />
       </main>
     </div>
   );
