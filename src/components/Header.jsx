@@ -1,10 +1,21 @@
-import { Github, Linkedin, Moon } from "lucide-react";
+import { Github, Linkedin, Menu, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 import Button from "../ui/Button";
 import styles from "./Header.module.css";
 import { format } from "date-fns";
+import { motion } from "framer-motion";
+import { MobileMenu } from "../ui/MobileMenu";
+
+const navItems = [
+  { id: "about", label: "ABOUT" },
+  { id: "experience", label: "EXPERIENCE" },
+  { id: "skills", label: "SKILLS" },
+  { id: "projects", label: "PROJECTS" },
+  { id: "contact", label: "CONTACT" },
+];
 
 function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(function () {
@@ -20,7 +31,18 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <button className={styles.logo}>AAM</button>
+        <motion.button
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className={styles.logo}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Scroll to top"
+        >
+          AAM
+        </motion.button>
 
         <div className={styles.links}>
           <div className={styles.timeWidget}>
@@ -37,23 +59,29 @@ function Header() {
             <Moon />
           </button>
 
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferer"
-            className={`${styles.iconButton} ${styles.socialLink}`}
-          >
-            <Github />
-          </a>
-
-          <a
-            href="https://linkedin.com"
+          <motion.a
+            href="https://github.com/slyskat"
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.iconButton} ${styles.socialLink}`}
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="GitHub Profile"
+          >
+            <Github />
+          </motion.a>
+
+          <motion.a
+            href="https://www.linkedin.com/in/abdullahiayomide/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className={`${styles.iconButton} ${styles.socialLink}`}
+            aria-label="LinkedIn Profile"
           >
             <Linkedin />
-          </a>
+          </motion.a>
 
           <Button
             btnType="outlineAccent"
@@ -62,8 +90,36 @@ function Header() {
           >
             <a href="#contact">Resume</a>
           </Button>
+
+          <div className={styles.mobileMenuButton}>
+            <Button
+              btnType="outlineAccent"
+              size="small"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <Menu />
+            </Button>
+          </div>
         </div>
       </div>
+
+      <MobileMenu
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+      >
+        <nav className={styles.mobileNav}>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={() => setMobileMenuOpen(false)}
+              className={styles.mobileNavLink}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </MobileMenu>
     </header>
   );
 }

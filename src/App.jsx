@@ -6,6 +6,10 @@ import { useState, useEffect } from "react";
 import styles from "./App.module.css";
 import AboutSection from "./components/sections/AboutSection";
 import SkillsSection from "./components/sections/SkillsSection";
+import ProjectsSection from "./components/sections/ProjectsSection";
+import ContactSection from "./components/sections/ContactSection";
+import Footer from "./components/Footer";
+import { Toaster } from "sonner";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("about");
@@ -60,6 +64,7 @@ function App() {
 
   return (
     <div className={styles.container}>
+      <Toaster position="top-right" />
       <div
         className={styles.scrollProgress}
         style={{ transform: `scaleX(${scrollProgress / 100})` }}
@@ -73,6 +78,9 @@ function App() {
         <Hero scrollToSection={scrollToSection} />
         <AboutSection />
         <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
+        <Footer />
       </main>
     </div>
   );

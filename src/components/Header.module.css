@@ -161,3 +161,33 @@
     display: flex;
   }
 }
+
+.mobileMenuButton {
+  display: flex;
+}
+
+@media (min-width: 1024px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 1rem;
+}
+
+.mobileNavLink {
+  font-size: 1.125rem;
+  color: hsl(219 58% 88%);
+  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2rem 0;
+  font-weight: 500;
+}
+
+.mobileNavLink:hover {
+  color: hsl(167 70% 45%);
+}

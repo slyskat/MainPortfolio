@@ -10,35 +10,60 @@ const navItems = [
 
 function Sidebar({ currentSection, scrollToSection }) {
   return (
-    <aside className={styles.sidebar}>
-      <ul className={styles.nav}>
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = currentSection === item.id;
+    <>
+      <aside className={styles.sidebar}>
+        <ul className={styles.nav}>
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = currentSection === item.id;
 
-          const handleClick = (e) => {
-            if (typeof scrollToSection === "function") {
-              e.preventDefault();
-              scrollToSection(item.id);
-            }
-          };
+            const handleClick = (e) => {
+              if (typeof scrollToSection === "function") {
+                e.preventDefault();
+                scrollToSection(item.id);
+              }
+            };
 
-          return (
-            <li key={item.id} className={styles.navItem}>
-              <a
-                href={`#${item.id}`}
-                className={`${styles.navLink} ${isActive ? styles.active : ""}`}
-                onClick={handleClick}
-                title={item.label}
-              >
-                <Icon className={styles.icon} size={18} />
-                <span className={styles.label}>{item.label}</span>
+            return (
+              <li key={item.id} className={styles.navItem}>
+                <a
+                  href={`#${item.id}`}
+                  className={`${styles.navLink} ${
+                    isActive ? styles.active : ""
+                  }`}
+                  onClick={handleClick}
+                  title={item.label}
+                >
+                  <Icon className={styles.icon} size={18} />
+                  <span className={styles.label}>{item.label}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </aside>
+
+      <nav className={styles.mobileNav}>
+        <ul className={styles.mobileNavList}>
+          {navItems.map((item) => (
+            <li key={item.id} className={styles.mobileNavItem}>
+              <a href={`#${item.id}`} className={styles.mobileNavLink}>
+                <div
+                  className={styles.mobileIndicator}
+                  data-active={currentSection === item.id}
+                />
+                <span
+                  className={styles.mobileLabel}
+                  data-active={currentSection === item.id}
+                >
+                  {item.label}
+                </span>
               </a>
             </li>
-          );
-        })}
-      </ul>
-    </aside>
+          ))}
+        </ul>
+      </nav>
+    </>
   );
 }
 

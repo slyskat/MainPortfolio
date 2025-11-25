@@ -1,6 +1,11 @@
 :root {
   --font-inter: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  :root {
+    --toastify-color-success: hsl(var(--color-success));
+    --toastify-color-error: hsl(0 84.2% 60.2%);
+  }
 }
 
 *,

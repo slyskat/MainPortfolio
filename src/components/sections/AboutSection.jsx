@@ -1,8 +1,16 @@
 import styles from "./AboutSection.module.css";
+import { motion } from "framer-motion";
 
 function AboutSection() {
   return (
-    <section className={styles.section} id="about">
+    <motion.section
+      className={styles.section}
+      id="about"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <h2 className={styles.heading}>About</h2>
       <div className={styles.content}>
         <p>
@@ -39,7 +47,7 @@ function AboutSection() {
           </a>
         </p>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
