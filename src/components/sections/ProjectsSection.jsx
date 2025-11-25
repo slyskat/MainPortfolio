@@ -3,6 +3,8 @@ import styles from "./ProjectsSection.module.css";
 import Tech from "../Tech";
 import Button from "../../ui/Button";
 import { motion } from "framer-motion";
+import JobBoardImg from "../../images/job-board.png";
+import learningTrackerImg from "../../images/learning-tracker.png";
 
 function ProjectsSection() {
   const projects = [
@@ -10,7 +12,7 @@ function ProjectsSection() {
       title: "Job Search App",
       description:
         "A comprehensive job search application featuring real-time filtering, location-based search, job statistics dashboard, and persistent storage for saved opportunities.",
-      image: "/src/images/job-board.png",
+      image: JobBoardImg,
       tech: ["React", "CSS Modules", "Lucide React", "date-fns"],
       liveUrl: "https://job-board-aggregator.vercel.app/",
       codeUrl: "https://github.com/slyskat/Job-Board-Aggregator",
@@ -19,7 +21,7 @@ function ProjectsSection() {
       title: "Learning Tracker",
       description:
         "Full-featured CRUD application for tracking learning goals with localStorage persistence, interactive pie chart visualizations, and progress monitoring.",
-      image: "/src/images/learning-tracker.png",
+      image: learningTrackerImg,
       tech: ["React", "CSS Modules", "localStorage", "Chart Integration"],
       liveUrl: "https://learning-tracker-xi.vercel.app/",
       codeUrl: "https://github.com/slyskat/Learning-Tracker",
