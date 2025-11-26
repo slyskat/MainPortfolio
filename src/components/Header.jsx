@@ -88,7 +88,14 @@ function Header() {
             size="small"
             className={styles.resumeButton}
           >
-            <a href="#contact">Resume</a>
+            <a
+              href="/resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>
           </Button>
 
           <div className={styles.mobileMenuButton}>
