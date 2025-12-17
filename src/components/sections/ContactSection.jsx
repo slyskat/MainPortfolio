@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import styles from "./ContactSection.module.css";
-import { Check, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Check, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 
@@ -56,11 +56,7 @@ function ContactSection() {
             </div>
           </motion.button>
 
-          <motion.a
-            href="tel:+2349160224271"
-            className={styles.contactButton}
-            whileHover={{ x: 5 }}
-          >
+          <motion.div className={styles.contactButton} whileHover={{ x: 5 }}>
             <motion.div
               className={styles.icon}
               whileHover={{
@@ -69,13 +65,13 @@ function ContactSection() {
                 transition: { duration: 0.5, repeat: 2 },
               }}
             >
-              <Phone />
+              <MapPin />
             </motion.div>
             <div className={styles.contactInfo}>
-              <div className={styles.label}>Phone</div>
-              <div className={styles.info}> +234 916 022 4271</div>
+              <div className={styles.label}>Location</div>
+              <div className={styles.info}>Lagos, Nigeria (WAT / GMT+1)</div>
             </div>
-          </motion.a>
+          </motion.div>
         </div>
 
         <div className={styles.socialLinks}>
@@ -97,7 +93,7 @@ function ContactSection() {
           <motion.a
             href="https://www.linkedin.com/in/abdullahiayomide/"
             target="_blank"
-            rel="nopener noreferrer"
+            rel="noopener noreferrer"
             className={styles.socialLink}
             whileHover={{ scale: 1.2, y: -3 }}
             whileTap={{ scale: 0.9 }}
