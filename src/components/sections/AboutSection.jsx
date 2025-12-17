@@ -14,11 +14,10 @@ function AboutSection() {
       <h2 className={styles.heading}>About</h2>
       <div className={styles.content}>
         <p>
-          I'm a self-taught front-end developer passionate about creating
-          thoughtful user experiences through clean code and modern web
-          technologies. My journey into web development started with curiosity
-          and evolved into a commitment to building production-ready
-          applications.
+          I'm a front-end developer passionate about creating thoughtful user
+          experiences through clean code and modern web technologies. My journey
+          into web development started with curiosity and evolved into a
+          commitment to building production-ready applications.
         </p>
         <p>
           My focus is on <span className={styles.highlight}>React</span>{" "}
